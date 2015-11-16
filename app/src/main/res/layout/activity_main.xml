@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal|fill"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/iBtnMarinas"
+            android:src="@mipmap/ic_harbor"
+            style="@style/Base.Widget.AppCompat.Button.Borderless"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_marinas"
+            android:id="@+id/textView"
+            android:layout_gravity="center_vertical"
+            android:textSize="@dimen/abc_text_size_large_material" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal|fill"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/iBtnLogBook"
+            android:src="@mipmap/ic_logbook"
+            style="@style/Base.Widget.AppCompat.Button.Borderless"
+            android:baselineAlignBottom="false"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_logbook"
+            android:id="@+id/textView2"
+            android:textSize="@dimen/abc_text_size_large_material"
+            android:layout_gravity="center_vertical" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal|fill"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/iBtnHelping"
+            android:src="@mipmap/ic_helping"
+            android:scaleType="centerCrop"
+            style="@style/Base.Widget.AppCompat.Button.Borderless" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_helping_hand"
+            android:id="@+id/textView3"
+            android:textSize="@dimen/abc_text_size_large_material"
+            android:layout_gravity="center_vertical" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton"
+            android:src="@mipmap/ic_users"
+            style="@style/Base.Widget.AppCompat.Button.Borderless"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_user_profile"
+            android:id="@+id/textView5"
+            android:textSize="@dimen/abc_text_size_large_material"
+            android:layout_gravity="center_vertical" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/iBtnLogout"
+            android:src="@mipmap/ic_exit"
+            android:scaleType="centerCrop"
+            style="@style/Base.Widget.AppCompat.Button.Borderless" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:id="@+id/textView4"
+            android:textSize="@dimen/abc_text_size_large_material"
+            android:layout_gravity="center_vertical" />
+    </LinearLayout>
+
+</LinearLayout>

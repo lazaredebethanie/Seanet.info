@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">Seanet.info</string>
+    <string name="title_activity_login">Seanet.info</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Common Strings -->
+    <string name="hint_email" translatable="false">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_name">Fullname</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+
+    <!-- Strings related to login and register -->
+
+    <string name="btnLogin">Sign in</string>
+    <string name="btnLinkToRegisterScreen">Not a member ? Sign up now.</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
+    <string name="btn_link_to_login">Already registred ! Login Me.</string>
+    <string name="alert_no_credentials">Please enter the credentials!</string>
+    <string name="btnRegister">REGISTER</string>
+    <string name="enter_details">Please enter your details!</string>
+    <string name="registered_success">User successfully registered. Try login now!</string>
+
+    <!-- Strings related to main screen -->
+    <string name="main_user_profile">User profile</string>
+    <string name="main_helping_hand">Helping hand</string>
+    <string name="main_logbook">Logbook</string>
+    <string name="main_marinas"><![CDATA[Marinas & Anchorages]]></string>
+
+    <!-- Strings related to logbook -->
+    <string name="title_activity_logbook">Logbook</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- Strings related to marinas -->
+    <string name="title_activity_marinas">Marinas</string>
+    <string name="marinas_select">Select</string>
+    <string name="marinas_prices">Known prices</string>
+    <string name="marinas_infos">Informations</string>
+    <string name="marinas_modify">Modify</string>
+    <string name="logbook_new_logbook">Initialize new log</string>
+    <string name="logbook_new_cruise">New cruise</string>
+    <string name="logbook_new_crew">New crew</string>
+    <string name="logbook_writers">Writers management</string>
+    <string-array name="titles">
+        <item>@string/logbook_new_logbook</item>
+        <item>@string/logbook_new_cruise</item>
+        <item>@string/logbook_new_crew</item>
+    </string-array>
+
+    <array name="icons">
+        <item>@mipmap/ic_book</item>
+        <item>@mipmap/ic_book</item>
+        <item>@mipmap/ic_book</item>
+    </array>
+    <string name="title_activity_logbooks">Logbooks</string>
+
+</resources>
