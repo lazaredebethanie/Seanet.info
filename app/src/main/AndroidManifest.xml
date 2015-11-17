@@ -70,6 +70,24 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="info.seanet.seanetinfo.logbook.Logbook" />
         </activity>
+        <activity
+            android:name=".logbook.Cruises"
+            android:label="@string/title_activity_cruises"
+            android:parentActivityName=".logbook.Logbook"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="info.seanet.seanetinfo.logbook.Logbook" />
+        </activity>
+        <activity
+            android:name=".logbook.NewLogbook"
+            android:label="@string/title_activity_new_logbook"
+            android:parentActivityName=".logbook.Logbook"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="info.seanet.seanetinfo.logbook.Logbook" />
+        </activity>
     </application>
 
 </manifest>

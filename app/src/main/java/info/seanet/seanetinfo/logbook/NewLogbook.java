@@ -1,6 +1,5 @@
 package info.seanet.seanetinfo.logbook;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -9,15 +8,12 @@ import android.widget.ImageButton;
 
 import info.seanet.seanetinfo.R;
 
-public class Logbooks extends AppCompatActivity {
-
+public class NewLogbook extends AppCompatActivity {
     private ImageButton back;
-    private ImageButton newLog;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.logbook_activity_logbooks);
+        setContentView(R.layout.logbook_activity_new_logbook);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -30,16 +26,6 @@ public class Logbooks extends AppCompatActivity {
                 finish();
             }
         });
-
-        newLog = (ImageButton) findViewById(R.id.iBtnAddLog);
-        newLog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent newLogbook = new Intent (this,NewLogbook.class);
-                startActivity(newLogbook);
-            }
-        });
-
     }
 
 }
