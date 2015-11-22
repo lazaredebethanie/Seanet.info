@@ -1,4 +1,4 @@
-package info.seanet.seanetinfo.helper;
+package info.seanet.seanetinfo.loginandregistration.helper;
 
 /**
  * Created by andre on 10/11/15.

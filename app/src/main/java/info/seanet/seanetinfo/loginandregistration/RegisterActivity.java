@@ -24,8 +24,8 @@ import java.util.Map;
 import info.seanet.seanetinfo.R;
 import info.seanet.seanetinfo.configandcontroler.AppConfig;
 import info.seanet.seanetinfo.configandcontroler.AppController;
-import info.seanet.seanetinfo.helper.SQLiteHandler;
-import info.seanet.seanetinfo.helper.SessionManager;
+import info.seanet.seanetinfo.loginandregistration.helper.SQLiteSession;
+import info.seanet.seanetinfo.loginandregistration.helper.SessionManager;
 import info.seanet.seanetinfo.main.MainActivity;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -38,7 +38,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText inputPassword;
     private ProgressDialog pDialog;
     private SessionManager session;
-    private SQLiteHandler db;
+    private SQLiteSession db;
 
 
     @Override
@@ -59,7 +59,7 @@ public class RegisterActivity extends AppCompatActivity {
         session = new SessionManager(getApplicationContext());
 
         // SQLite database handler
-        db = new SQLiteHandler(getApplicationContext());
+        db = new SQLiteSession(getApplicationContext());
 
         // Check if user is already logged in or not
         if (session.isLoggedIn()) {

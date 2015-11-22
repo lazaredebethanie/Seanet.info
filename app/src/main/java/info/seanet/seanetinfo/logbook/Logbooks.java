@@ -12,7 +12,6 @@ import info.seanet.seanetinfo.R;
 public class Logbooks extends AppCompatActivity {
 
     private ImageButton back;
-    private ImageButton newLog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,14 +30,11 @@ public class Logbooks extends AppCompatActivity {
             }
         });
 
-        newLog = (ImageButton) findViewById(R.id.iBtnAddLog);
-        newLog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent newLogbook = new Intent (this,NewLogbook.class);
-                startActivity(newLogbook);
-            }
-        });
+
+    }
+    public void Add (View view) {
+        Intent newLogbook = new Intent (this,NewLogbook.class);
+        startActivity(newLogbook);
 
     }
 

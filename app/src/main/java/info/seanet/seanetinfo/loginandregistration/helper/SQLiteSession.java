@@ -1,4 +1,4 @@
-package info.seanet.seanetinfo.helper;
+package info.seanet.seanetinfo.loginandregistration.helper;
 
 /**
  * Created by andre on 10/11/15.
@@ -12,15 +12,15 @@ import android.util.Log;
 
 import java.util.HashMap;
 
-public class SQLiteHandler extends SQLiteOpenHelper {
-    private static final String TAG = SQLiteHandler.class.getSimpleName();
+public class SQLiteSession extends SQLiteOpenHelper {
+    private static final String TAG = SQLiteSession.class.getSimpleName();
 
     // All Static variables
     // Database Version
     private static final int DATABASE_VERSION = 1;
 
     // Database Name
-    private static final String DATABASE_NAME = "android_api";
+    private static final String DATABASE_NAME = "seanet_info_session";
 
     // Login table name
     private static final String TABLE_USER = "user";
@@ -32,7 +32,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     private static final String KEY_UID = "uid";
     private static final String KEY_CREATED_AT = "created_at";
 
-    public SQLiteHandler(Context context) {
+    public SQLiteSession(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 

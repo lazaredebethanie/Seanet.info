@@ -10,8 +10,8 @@ import java.util.HashMap;
 
 import info.seanet.seanetinfo.R;
 import info.seanet.seanetinfo.harbors.Harbors;
-import info.seanet.seanetinfo.helper.SQLiteHandler;
-import info.seanet.seanetinfo.helper.SessionManager;
+import info.seanet.seanetinfo.loginandregistration.helper.SQLiteSession;
+import info.seanet.seanetinfo.loginandregistration.helper.SessionManager;
 import info.seanet.seanetinfo.logbook.Logbook;
 import info.seanet.seanetinfo.loginandregistration.LoginActivity;
 
@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton btnLogbook;
     private ImageButton btnMarinas;
 
-    private SQLiteHandler db;
+    private SQLiteSession db;
     private SessionManager session;
 
 
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         btnMarinas = (ImageButton) findViewById(R.id.iBtnMarinas);
 
         // SqLite database handler
-        db = new SQLiteHandler(getApplicationContext());
+        db = new SQLiteSession(getApplicationContext());
 
         // session manager
         session = new SessionManager(getApplicationContext());

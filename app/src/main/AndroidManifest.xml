@@ -50,7 +50,7 @@
                 android:value="info.seanet.seanetinfo.main.MainActivity" />
         </activity>
         <activity
-            android:name=".marinas.Marinas"
+            android:name=".harbors.Harbors"
             android:label="@string/title_activity_marinas"
             android:parentActivityName=".main.MainActivity" >
 
@@ -58,8 +58,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="info.seanet.seanetinfo.main.MainActivity" />
-        </activity>
-        <activity android:name=".harbors.Harbors" >
         </activity>
         <activity
             android:name=".logbook.Logbooks"
@@ -82,6 +80,15 @@
         <activity
             android:name=".logbook.NewLogbook"
             android:label="@string/title_activity_new_logbook"
+            android:parentActivityName=".logbook.Logbook"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="info.seanet.seanetinfo.logbook.Logbook" />
+        </activity>
+        <activity
+            android:name=".logbook.NewOwner"
+            android:label="@string/title_activity_new_owner"
             android:parentActivityName=".logbook.Logbook"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data

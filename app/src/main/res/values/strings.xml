@@ -61,5 +61,6 @@
     <string name="title_activity_logbooks">Logbooks</string>
     <string name="title_activity_cruises">Cruises</string>
     <string name="title_activity_new_logbook">NewLogbook</string>
+    <string name="title_activity_new_owner">Create a new owner</string>
 
 </resources>

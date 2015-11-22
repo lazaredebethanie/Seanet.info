@@ -73,6 +73,15 @@
                 android:textSize="@dimen/abc_text_size_medium_material" />
 
             <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Enter without log in (no export possible)"
+                android:id="@+id/btnNoConnect"
+                android:layout_gravity="center_horizontal"
+                android:textSize="@dimen/abc_text_size_small_material" />
+
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/btnLinkToRegisterScreen"

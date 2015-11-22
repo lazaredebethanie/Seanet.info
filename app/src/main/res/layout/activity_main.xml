@@ -42,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/iBtnLogBook"
-            android:src="@mipmap/ic_logbook"
+            android:src="@mipmap/ic_seafaring"
             style="@style/Base.Widget.AppCompat.Button.Borderless"
             android:baselineAlignBottom="false"
             android:scaleType="centerCrop" />

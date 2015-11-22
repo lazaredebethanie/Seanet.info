@@ -24,8 +24,8 @@ import java.util.Map;
 import info.seanet.seanetinfo.R;
 import info.seanet.seanetinfo.configandcontroler.AppConfig;
 import info.seanet.seanetinfo.configandcontroler.AppController;
-import info.seanet.seanetinfo.helper.SQLiteHandler;
-import info.seanet.seanetinfo.helper.SessionManager;
+import info.seanet.seanetinfo.loginandregistration.helper.SQLiteSession;
+import info.seanet.seanetinfo.loginandregistration.helper.SessionManager;
 import info.seanet.seanetinfo.main.MainActivity;
 
 /**
@@ -34,12 +34,13 @@ import info.seanet.seanetinfo.main.MainActivity;
 public class LoginActivity extends Activity {
     private static final String TAG = RegisterActivity.class.getSimpleName();
     private Button btnLogin;
+    private Button btnNoConnect;
     private Button btnLinkToRegister;
     private EditText inputEmail;
     private EditText inputPassword;
     private ProgressDialog pDialog;
     private SessionManager session;
-    private SQLiteHandler db;
+    private SQLiteSession db;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +49,7 @@ public class LoginActivity extends Activity {
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);
         btnLogin = (Button) findViewById(R.id.btnLogin);
+        btnNoConnect = (Button) findViewById(R.id.btnNoConnect);
         btnLinkToRegister = (Button) findViewById(R.id.btnLinkToRegisterScreen);
 
         // Progress dialog
@@ -55,7 +57,7 @@ public class LoginActivity extends Activity {
         pDialog.setCancelable(false);
 
         // SQLite database handler
-        db = new SQLiteHandler(getApplicationContext());
+        db = new SQLiteSession(getApplicationContext());
 
         // Session manager
         session = new SessionManager(getApplicationContext());
@@ -95,6 +97,17 @@ public class LoginActivity extends Activity {
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(),
                         RegisterActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
+        // Link to Register Screen
+        btnNoConnect.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(),
+                        MainActivity.class);
                 startActivity(i);
                 finish();
             }

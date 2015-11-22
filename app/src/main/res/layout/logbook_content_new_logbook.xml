@@ -91,133 +91,183 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <EditText
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/editText14"
-                android:hint="Give a short name for your logbook" />
 
+            <android.support.design.widget.TextInputLayout android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/editText"
+                android:id="@+id/etNameLog"
+                android:hint="Give a short name for your logbook"
+                android:singleLine="true" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etBoatName"
                 android:hint="Boat name"
                 android:textSize="@dimen/abc_text_size_body_1_material" />
+            </android.support.design.widget.TextInputLayout>
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/editText2"
-                android:hint="Registration number"
-                android:textSize="@dimen/abc_text_size_body_1_material" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/editText3"
-                android:layout_gravity="center_horizontal"
-                android:hint="Francisation number"
-                android:textSize="@dimen/abc_text_size_body_1_material" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/editText4"
-                android:hint="Insurance policy"
-                android:textSize="@dimen/abc_text_size_body_1_material" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/editText5"
-                android:layout_gravity="center_horizontal"
-                android:hint="Insurance compagnie"
-                android:textSize="@dimen/abc_text_size_body_1_material" />
-
+            <android.support.design.widget.TextInputLayout android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="phone"
                 android:ems="10"
-                android:id="@+id/editText6"
+                android:id="@+id/etPhone"
                 android:hint="Phone"
                 android:textSize="@dimen/abc_text_size_body_1_material" />
+            </android.support.design.widget.TextInputLayout>
 
+            <android.support.design.widget.TextInputLayout android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etRegistrationNR"
+                android:hint="Registration number"
+                android:textSize="@dimen/abc_text_size_body_1_material" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etFrancisationNR"
+                android:layout_gravity="center_horizontal"
+                android:hint="Francisation number"
+                android:textSize="@dimen/abc_text_size_body_1_material" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etInsurrancePolicy"
+                android:hint="Insurance policy"
+                android:textSize="@dimen/abc_text_size_body_1_material" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etInsurranceCie"
+                android:layout_gravity="center_horizontal"
+                android:hint="Insurance compagnie"
+                android:textSize="@dimen/abc_text_size_body_1_material" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:ems="10"
-                android:id="@+id/editText7"
-                android:hint="Email"
-                android:textSize="@dimen/abc_text_size_body_1_material" />
+                android:id="@+id/etMailSkipper"
+                android:hint="@string/prompt_email"
+                android:textSize="@dimen/abc_text_size_body_1_material"
+                android:singleLine="true" />
+            </android.support.design.widget.TextInputLayout>
 
+            <android.support.design.widget.TextInputLayout android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/editText8"
+                android:id="@+id/etHabour"
                 android:layout_gravity="center_horizontal"
                 android:hint="Harbour"
                 android:textSize="@dimen/abc_text_size_body_1_material" />
+            </android.support.design.widget.TextInputLayout>
 
+            <android.support.design.widget.TextInputLayout android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/editText9"
+                android:id="@+id/etRadioCall"
                 android:layout_gravity="center_horizontal"
                 android:hint="Radio callsign"
                 android:textSize="@dimen/abc_text_size_body_1_material" />
+            </android.support.design.widget.TextInputLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+                <android.support.design.widget.TextInputLayout android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50">
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/editText10"
+                    android:id="@+id/etLength"
                     android:layout_weight="50"
                     android:hint="Length"
                     android:textSize="@dimen/abc_text_size_body_1_material" />
+                </android.support.design.widget.TextInputLayout>
 
+                <android.support.design.widget.TextInputLayout android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50">
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/editText11"
+                    android:id="@+id/etBeam"
                     android:layout_weight="50"
                     android:hint="Beam"
                     android:textSize="@dimen/abc_text_size_body_1_material" />
+                </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal">
+                android:layout_height="wrap_content">
 
+                <android.support.design.widget.TextInputLayout android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50">
                 <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/editText12"
                     android:layout_weight="50"
                     android:hint="Draught"
                     android:textSize="@dimen/abc_text_size_body_1_material" />
+                </android.support.design.widget.TextInputLayout>
 
+                <android.support.design.widget.TextInputLayout android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50">
                 <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/editText13"
                     android:layout_weight="50"
                     android:hint="Tonnage"
                     android:textSize="@dimen/abc_text_size_body_1_material" />
+                </android.support.design.widget.TextInputLayout>
+
             </LinearLayout>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Select/Add a new owner :"
+                android:text="Select (or add a new) owner :"
                 android:id="@+id/textView9"
                 android:paddingTop="5dp" />
 
@@ -230,7 +280,7 @@
                 <Spinner
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/spinner2"
+                    android:id="@+id/spOwner"
                     android:layout_weight="90" />
 
                 <ImageView
@@ -238,9 +288,24 @@
                     android:layout_height="40dp"
                     android:id="@+id/imageView3"
                     android:src="@android:drawable/ic_menu_add"
-                    android:layout_weight="10" />
+                    android:layout_weight="10"
+                    android:onClick="createNewOwner" />
             </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:id="@+id/tAddress" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:id="@+id/tEmailOwner" />
+
         </LinearLayout>
+
     </ScrollView>
 
 </LinearLayout>
