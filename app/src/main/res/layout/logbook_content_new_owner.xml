@@ -75,7 +75,7 @@
                 android:id="@+id/imageButton5"
                 android:src="@android:drawable/ic_menu_save"
                 style="@style/Widget.AppCompat.Button.Borderless"
-                android:onClick="onSave" />
+                android:onClick="onSaveOwner" />
 
         </LinearLayout>
     </LinearLayout>

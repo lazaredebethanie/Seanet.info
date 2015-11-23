@@ -71,9 +71,12 @@
             <ImageButton
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:id="@+id/imageButton5"
+                android:id="@+id/iBtnSave"
                 android:src="@android:drawable/ic_menu_save"
-                style="@style/Widget.AppCompat.Button.Borderless" />
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:adjustViewBounds="true"
+                android:nestedScrollingEnabled="true"
+                android:onClick="onSaveLogbook" />
 
         </LinearLayout>
     </LinearLayout>
@@ -185,7 +188,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/etHabour"
+                android:id="@+id/etHarbour"
                 android:layout_gravity="center_horizontal"
                 android:hint="Harbour"
                 android:textSize="@dimen/abc_text_size_body_1_material" />
@@ -243,7 +246,7 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/editText12"
+                    android:id="@+id/etDraught"
                     android:layout_weight="50"
                     android:hint="Draught"
                     android:textSize="@dimen/abc_text_size_body_1_material" />
@@ -255,7 +258,7 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/editText13"
+                    android:id="@+id/etTonnage"
                     android:layout_weight="50"
                     android:hint="Tonnage"
                     android:textSize="@dimen/abc_text_size_body_1_material" />

@@ -12,6 +12,8 @@ import info.seanet.seanetinfo.R;
 public class Logbooks extends AppCompatActivity {
 
     private ImageButton back;
+    static final int NEW_LOGBOOK_REQUEST = 1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,13 +31,18 @@ public class Logbooks extends AppCompatActivity {
                 finish();
             }
         });
-
-
     }
+
     public void Add (View view) {
         Intent newLogbook = new Intent (this,NewLogbook.class);
-        startActivity(newLogbook);
+        startActivityForResult(newLogbook,NEW_LOGBOOK_REQUEST);
 
     }
 
+    protected void onActivityResult (int requestCode, int resultCode, Intent data) {
+        switch  (requestCode) {
+            case NEW_LOGBOOK_REQUEST:
+                return;
+        }
+    }
 }

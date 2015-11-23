@@ -36,7 +36,7 @@ public class NewOwner extends AppCompatActivity {
         finish();
     }
 
-    public void onSave(View v) {
+    public void onSaveOwner(View v) {
         String name=etName.getText().toString();
         String email=etEmail.getText().toString();
         String address=etAddress.getText().toString();

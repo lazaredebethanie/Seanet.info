@@ -10,6 +10,7 @@ import java.util.HashMap;
 
 import info.seanet.seanetinfo.R;
 import info.seanet.seanetinfo.harbors.Harbors;
+import info.seanet.seanetinfo.logbook.TestOwners;
 import info.seanet.seanetinfo.loginandregistration.helper.SQLiteSession;
 import info.seanet.seanetinfo.loginandregistration.helper.SessionManager;
 import info.seanet.seanetinfo.logbook.Logbook;
@@ -88,6 +89,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    public void onSpecial(View v) {
+        Intent act=new Intent(this, TestOwners.class);
+        startActivity(act);
     }
 
 }
