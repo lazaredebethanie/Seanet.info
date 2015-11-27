@@ -7,8 +7,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/logbook_activity_logbooks"
-    tools:context="info.seanet.seanetinfo.logbook.Logbooks"
+    tools:showIn="@layout/logbook_activity_logbook_manage"
+    tools:context=".logbook.LogbooksManage"
     android:orientation="vertical">
 
     <LinearLayout
@@ -78,7 +78,8 @@
                     android:layout_height="30dp"
                     android:id="@+id/imageButton6"
                     android:src="@android:drawable/ic_menu_edit"
-                    style="@style/Widget.AppCompat.Button.Borderless" />
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:onClick="modifyLogbook" />
             </LinearLayout>
         </LinearLayout>
 
@@ -104,7 +105,7 @@
                 android:id="@+id/iBtnAddLog"
                 android:src="@android:drawable/ic_menu_add"
                 style="@style/Widget.AppCompat.Button.Borderless"
-                android:onClick="Add" />
+                android:onClick="addLogbook" />
         </LinearLayout>
     </LinearLayout>
 
@@ -121,7 +122,7 @@
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:id="@+id/spinner"
+                android:id="@+id/spLogbook"
                 android:layout_gravity="center_horizontal" />
 
             <LinearLayout
@@ -243,7 +244,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
                         android:text="Opening date :"
                         android:id="@+id/textView23"
                         android:paddingTop="10dp" />
@@ -251,7 +252,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
                         android:text="Closing Date :"
                         android:id="@+id/textView24" />
 
@@ -267,92 +268,79 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:id="@+id/boatName"
-                        android:text="xxxxx" />
+                        android:id="@+id/tBoatName" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Small Text"
-                        android:id="@+id/textView10" />
+                        android:id="@+id/tRegNr" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Small Text"
-                        android:id="@+id/textView25" />
+                        android:id="@+id/tFraNr" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Small Text"
-                        android:id="@+id/textView26" />
+                        android:id="@+id/tInsPol" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Small Text"
-                        android:id="@+id/textView27" />
+                        android:id="@+id/tInsCie" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Small Text"
-                        android:id="@+id/textView28" />
+                        android:id="@+id/tPhone" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Small Text"
-                        android:id="@+id/textView29" />
+                        android:id="@+id/tEmail" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Small Text"
-                        android:id="@+id/textView30" />
+                        android:id="@+id/tHarbour" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Small Text"
-                        android:id="@+id/textView31" />
+                        android:id="@+id/tCallsign" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Small Text"
-                        android:id="@+id/textView32" />
+                        android:id="@+id/tLength" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Small Text"
-                        android:id="@+id/textView33" />
+                        android:id="@+id/tBeam" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Small Text"
-                        android:id="@+id/textView34" />
+                        android:id="@+id/tDraught" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Small Text"
-                        android:id="@+id/textView35" />
+                        android:id="@+id/tTonnage" />
 
                     <LinearLayout
                         android:orientation="horizontal"
@@ -364,35 +352,34 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="Small Text"
-                            android:id="@+id/textView36"
-                            android:layout_weight="80"
+                            android:id="@+id/tOwner"
+                            android:layout_weight="70"
                             android:layout_gravity="center_vertical" />
 
                         <ImageButton
                             android:layout_width="40dp"
                             android:layout_height="30dp"
-                            android:id="@+id/imageButton3"
+                            android:id="@+id/iBtnInfoOwner"
                             android:src="@android:drawable/ic_menu_info_details"
                             style="@style/Widget.AppCompat.Button.Borderless"
-                            android:layout_weight="5"
-                            android:layout_gravity="center_vertical" />
+                            android:layout_weight="30"
+                            android:layout_gravity="center_vertical"
+                            android:onClick="InfoOwner" />
+
                     </LinearLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="Medium Text"
-                        android:id="@+id/textView37"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:id="@+id/tCreated"
                         android:paddingTop="10dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="Medium Text"
-                        android:id="@+id/textView38" />
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:id="@+id/tClosed" />
 
                 </LinearLayout>
             </LinearLayout>

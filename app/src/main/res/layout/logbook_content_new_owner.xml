@@ -72,10 +72,9 @@
             <ImageButton
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:id="@+id/imageButton5"
+                android:id="@+id/iBtnSave"
                 android:src="@android:drawable/ic_menu_save"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:onClick="onSaveOwner" />
+                style="@style/Widget.AppCompat.Button.Borderless" />
 
         </LinearLayout>
     </LinearLayout>

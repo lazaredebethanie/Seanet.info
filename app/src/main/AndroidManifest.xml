@@ -32,10 +32,10 @@
         </activity>
         <activity
             android:name=".loginandregistration.RegisterActivity"
-            android:launchMode="singleTop"></activity>
+            android:launchMode="singleTop" />
         <activity
             android:name=".main.MainActivity"
-            android:launchMode="singleTop"></activity>
+            android:launchMode="singleTop" />
         <activity
             android:name=".logbook.Logbook"
             android:label="@string/title_activity_logbook"
@@ -58,7 +58,7 @@
                 android:value="info.seanet.seanetinfo.main.MainActivity" />
         </activity>
         <activity
-            android:name=".logbook.Logbooks"
+            android:name=".logbook.LogbooksManage"
             android:label="@string/title_activity_logbooks"
             android:parentActivityName=".logbook.Logbook"
             android:theme="@style/AppTheme.NoActionBar">
@@ -84,7 +84,20 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="info.seanet.seanetinfo.logbook.Logbook" />
         </activity>
-        <activity android:name=".logbook.TestOwners"></activity>
+        <activity android:name=".logbook.TestOwners" />
+        <activity
+            android:name=".logbook.ModifyLogbook"
+            android:label="@string/title_activity_modify_logbook"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".logbook.CrewsManage"
+            android:label="@string/title_activity_crews_manage"
+            android:parentActivityName=".logbook.Logbook"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="info.seanet.seanetinfo.logbook.Logbook" />
+        </activity>
     </application>
 
 </manifest>

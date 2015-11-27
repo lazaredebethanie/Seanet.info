@@ -14,7 +14,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,8 +22,8 @@ import info.seanet.seanetinfo.logbook.db.Logbooks;
 import info.seanet.seanetinfo.logbook.db.LogbooksDB;
 import info.seanet.seanetinfo.logbook.db.Owners;
 
-public class NewLogbook extends AppCompatActivity {
-    private static final String TAG = NewLogbook.class.getSimpleName();
+public class ModifyLogbook extends AppCompatActivity {
+    private static final String TAG = ModifyLogbook.class.getSimpleName();
 
     private ImageButton back;
     private ImageButton save;
@@ -43,23 +42,30 @@ public class NewLogbook extends AppCompatActivity {
     private EditText etBeam;
     private EditText etDraught;
     private EditText etTonnage;
+    private String created;
+    private String closed;
     private Spinner spOwner;
     private TextView tOwnerEmail;
     private TextView tOwnerAddress;
     private LogbooksDB db;
+    private List<Logbooks> logbooks;
+    private List<Owners> owners;
     static final int OWNER_REQUEST = 1;
 
-    private List<Owners> owners;
-    private static SimpleDateFormat format_sdf =
-            new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
+    static final String EXTRA_ID="logbook_id";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.logbook_activity_new_logbook);
+        setContentView(R.layout.logbook_activity_modify_logbook);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        Intent callingActivity = getIntent();
+        final int logbookId=callingActivity.getIntExtra(EXTRA_ID, 0);
 
         etNamelog=(EditText) findViewById(R.id.etNameLog);
         etBoatName=(EditText) findViewById(R.id.etBoatName);
@@ -75,13 +81,36 @@ public class NewLogbook extends AppCompatActivity {
         etBeam=(EditText) findViewById(R.id.etBeam);
         etDraught=(EditText) findViewById(R.id.etDraught);
         etTonnage=(EditText) findViewById(R.id.etTonnage);
-
+        spOwner=(Spinner) findViewById(R.id.spOwner);
         tOwnerEmail =(TextView) findViewById(R.id.tEmailOwner);
         tOwnerAddress = (TextView) findViewById(R.id.tAddress);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         db = new LogbooksDB(this);
+
+        db.open();
+        // load logbook with id
+        logbooks=db.getLogbookDetails(logbookId);
+        db.close();
+
+        etNamelog.setText(logbooks.get(0).getNameLog());
+        etBoatName.setText(logbooks.get(0).getBoat());
+        etPhone.setText(logbooks.get(0).getPhone());
+        etRegistrationNR.setText(logbooks.get(0).getRegNR());
+        etFrancisationNR.setText(logbooks.get(0).getFraNR());
+        etInsurrancePolicy.setText(logbooks.get(0).getInsPol());
+        etInsurranceCie.setText(logbooks.get(0).getInsCie());
+        etMailSkipper.setText(logbooks.get(0).getCapEmail());
+        etHarbour.setText(logbooks.get(0).getHarbour());
+        etRadioCall.setText(logbooks.get(0).getRadioCall());
+        etLength.setText(logbooks.get(0).getLength());
+        etBeam.setText(logbooks.get(0).getBeam());
+        etDraught.setText(logbooks.get(0).getDraught());
+        etTonnage.setText(logbooks.get(0).getTonnage());
+        created=logbooks.get(0).getCreated();
+        closed=logbooks.get(0).getClosed();
+
+
+        loadOwnerSpinner(logbooks.get(0).getOwnerId());
 
         back = (ImageButton) findViewById(R.id.iBtnBack);
         back.setOnClickListener(new View.OnClickListener() {
@@ -95,7 +124,7 @@ public class NewLogbook extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onSaveLogbook();
+                onSaveLogbook(logbookId);
             }
         });
 
@@ -106,9 +135,6 @@ public class NewLogbook extends AppCompatActivity {
                 createNewOwner();
             }
         });
-
-        spOwner=(Spinner) findViewById(R.id.spOwner);
-
         spOwner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 tOwnerEmail.setText(owners.get(spOwner.getSelectedItemPosition()).getEmail());
@@ -121,9 +147,7 @@ public class NewLogbook extends AppCompatActivity {
             }
         });
 
-        loadOwnerSpinner();
     }
-
     public void createNewOwner () {
 
         Intent newOwnerAct = new Intent (this,NewOwner.class);
@@ -131,47 +155,53 @@ public class NewLogbook extends AppCompatActivity {
 
     }
 
-    private void loadOwnerSpinner (){
+    protected void onActivityResult (int requestCode, int resultCode, Intent data) {
+        switch  (requestCode) {
+            case OWNER_REQUEST:
+                loadOwnerSpinner(-1);
+                return;
+        }
+    }
+
+    private void loadOwnerSpinner (int ownerId){
         db.open();
         owners=db.getOwnerDetails(0); // return notifyAll();
         db.close();
+
+        int idxSp=-1;
+
         List<String> listName=new ArrayList<String>();
         for (int i=0;i<owners.size();i++) {
             listName.add(owners.get(i).getName());
+            System.out.println(owners.get(i).getId());
+            if (owners.get(i).getId()==ownerId) {
+                idxSp=i;
+            }
         }
 
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, listName);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spOwner.setAdapter(dataAdapter);
-        spOwner.setSelection(spOwner.getCount() - 1);
+        if (ownerId==-1) {idxSp=spOwner.getCount() - 1;}
+        spOwner.setSelection(idxSp);
 
         Log.d(TAG, "Spinner loaded");
 
     }
 
-    protected void onActivityResult (int requestCode, int resultCode, Intent data) {
-        switch  (requestCode) {
-            case OWNER_REQUEST:
-                loadOwnerSpinner();
-                return;
-        }
-    }
-
-
-    public void onSaveLogbook () {
+    public void onSaveLogbook (int logbookId) {
 
         if (spOwner.getCount()>0) {
             if (! etNamelog.equals("")) {
 
                 db = new LogbooksDB(this);
 
-                db.open();
 
                 Logbooks logbook = new Logbooks();
+                logbook.setId(logbookId);
                 logbook.setNameLog(etNamelog.getText().toString());
                 logbook.setBoat(etBoatName.getText().toString());
-
                 logbook.setPhone(etPhone.getText().toString());
                 logbook.setRegNR(etRegistrationNR.getText().toString());
                 logbook.setFraNR(etFrancisationNR.getText().toString());
@@ -185,12 +215,12 @@ public class NewLogbook extends AppCompatActivity {
                 logbook.setDraught(etDraught.getText().toString());
                 logbook.setTonnage(etTonnage.getText().toString());
                 logbook.setOwnerId(owners.get(spOwner.getSelectedItemPosition()).getId());
-                android.text.format.DateFormat df = new android.text.format.DateFormat();
-                String timestamp=(String) df.format("yyyy-MM-dd hh:mm", new java.util.Date());
-                logbook.setCreated(timestamp);
-                logbook.setClosed(null);
+                logbook.setCreated(created);
+                logbook.setClosed(closed);
 
-                db.addLogbook(logbook);
+                db.open();
+
+                db.updateLogbook(logbook);
 
                 db.close();
                 finish();
@@ -201,9 +231,4 @@ public class NewLogbook extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Not saved, create a owner...", Toast.LENGTH_SHORT).show();
         }
     }
-
-    public void onExit(View v) {
-        finish();
-    }
-
 }

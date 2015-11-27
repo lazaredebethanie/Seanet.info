@@ -9,14 +9,18 @@ public class Owners {
     private String name;
     private String address;
     private String email;
+    private int savedFlag;
+    private String saved;
 
     public Owners(){}
 
-    public Owners(int owner_id,String name,String address, String email){
+    public Owners(int owner_id,String name,String address, String email, int savedFlag, String saved){
         this.owner_id=owner_id;
         this.name=name;
         this.address=address;
         this.email=email;
+        this.savedFlag=savedFlag;
+        this.saved=saved;
     }
 
     public int getId() {
@@ -51,8 +55,24 @@ public class Owners {
         this.email = email;
     }
 
+    public int getSavedFlag() {
+        return savedFlag;
+    }
+
+    public void setSavedFlag(int savedFlag) {
+        this.savedFlag = savedFlag;
+    }
+
+    public String getSaved() {
+        return saved;
+    }
+
+    public void setSaved(String saved) {
+        this.saved = saved;
+    }
+
     public String toString(){
-        return owner_id+";"+name+";"+address+";"+email;
+        return owner_id+";"+name+";"+address+";"+email+";"+savedFlag+";"+saved;
     }
 
 
