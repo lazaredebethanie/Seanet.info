@@ -101,8 +101,8 @@ public class SQLiteLogbook extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         // Owner table
-        //db.execSQL(CREATE_OWNER_TABLE);
-        //db.execSQL(CREATE_LOGBOOK_TABLE);
+        db.execSQL(CREATE_OWNER_TABLE);
+        db.execSQL(CREATE_LOGBOOK_TABLE);
         db.execSQL(CREATE_CREW_TABLE);
 
         Log.d(TAG, "Database tables created");
@@ -112,8 +112,8 @@ public class SQLiteLogbook extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Drop older owner table if existed
-        //db.execSQL("DROP TABLE IF EXISTS " + TABLE_OWNER);
-        //db.execSQL("DROP TABLE IF EXISTS " + TABLE_LOGBOOK);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_OWNER);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_LOGBOOK);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_CREW);
 
         // Create tables again
