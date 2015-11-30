@@ -76,6 +76,8 @@ public class Logbook extends AppCompatActivity
             Intent logbooks = new Intent (this,LogbooksManage.class);
             startActivity(logbooks);
         } else if (id == R.id.nav_cruises) {
+            Intent cruises = new Intent (this,CruisesManage.class);
+            startActivity(cruises);
 
         } else if (id == R.id.nav_crews) {
             Intent crews = new Intent (this,CrewsManage.class);

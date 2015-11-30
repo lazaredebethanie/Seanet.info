@@ -20,7 +20,7 @@ public class LogbooksDB {
                     DATABASE SETTINGS
     ******************************************************************************************* */
     // Database Version
-    private static final int DATABASE_VERSION = 7;
+    private static final int DATABASE_VERSION = 8;
 
     // Database Name
     private static final String DATABASE_NAME = "seanet_info_logbook";
@@ -110,20 +110,71 @@ public class LogbooksDB {
     private static final int NUM_KEY_LOGBOOK_DATE_SAVED = 19;
 
     // KEYS FOR TABLE CREWS
-    private static final String TABLE_CREW="owner";
+    private static final String TABLE_CREW="crew";
     private static final String KEY_CREW_ID = "id";
     private static final int NUM_KEY_CREW_ID=0;
     private static final String KEY_CREW_NAME = "name";
     private static final int NUM_KEY_CREW_NAME=1;
-    private static final String KEY_CREW_EMAIL = "email";
-    private static final int NUM_KEY_CREW_EMAIL=2;
-    private static final String KEY_CREW_ADDRESS = "address";
-    private static final int NUM_KEY_CREW_ADDRESS=3;
+    private static final String KEY_CREW_LIST = "list";
+    private static final int NUM_KEY_CREW_LIST=2;
     private static final String KEY_CREW_SAVED_ON_SERVER = "savedFlag";
-    private static final int NUM_KEY_CREW_SAVED_ON_SERVER = 4;
+    private static final int NUM_KEY_CREW_SAVED_ON_SERVER = 3;
     private static final String KEY_CREW_DATE_SAVED = "saved";
-    private static final int NUM_KEY_CREW_DATE_SAVED = 5;
-    
+    private static final int NUM_KEY_CREW_DATE_SAVED = 4;
+
+    // KEYS FOR TABLE CRUISES
+    private static final String TABLE_CRUISE = "cruise";
+    private static final String KEY_CRUISE_ID = "id";
+    private static final int NUM_KEY_CRUISE_ID = 0;
+
+    private static final String KEY_CRUISE_DESC = "name";
+    private static final int NUM_KEY_CRUISE_DESC = 1;
+
+    private static final String KEY_CRUISE_START_DATE = "start_date";
+    private static final int NUM_KEY_CRUISE_START_DATE = 2;
+
+    private static final String KEY_CRUISE_END_DATE = "endDate";
+    private static final int NUM_KEY_CRUISE_END_DATE = 3;
+
+    private static final String KEY_CRUISE_FROM = "from";
+    private static final int NUM_KEY_CRUISE_FROM = 4;
+
+    private static final String KEY_CRUISE_TO = "to";
+    private static final int NUM_KEY_CRUISE_TO = 5;
+
+    private static final String KEY_CRUISE_FROM_HARBOUR = "from_harbour";
+    private static final int NUM_KEY_CRUISE_FROM_HARBOUR = 6;
+
+    private static final String KEY_CRUISE_TO_HARBOUR = "to_habour";
+    private static final int NUM_KEY_CRUISE_TO_HARBOUR = 7;
+
+    private static final String KEY_CRUISE_CAPTAIN = "captain";
+    private static final int NUM_KEY_CRUISE_CAPTAIN = 8;
+
+    private static final String KEY_CRUISE_CREW_ID = "crew_id";
+    private static final int NUM_KEY_CRUISE_CREW_ID = 9;
+
+    private static final String KEY_CRUISE_EXPECTED_WEATHER = "expected_weather";
+    private static final int NUM_KEY_CRUISE_EXPECTED_WEATHER = 10;
+
+    private static final String KEY_CRUISE_WATER_LEVEL = "water_level";
+    private static final int NUM_KEY_CRUISE_WATER_LEVEL = 1;
+
+    private static final String KEY_CRUISE_FUEL = "fuel";
+    private static final int NUM_KEY_CRUISE_FUEL = 12;
+
+    private static final String KEY_CRUISE_AT_STOP = "at_stop";
+    private static final int NUM_KEY_CRUISE_AT_STOP = 13;
+
+    private static final String KEY_CRUISE_LOGBOOK_ID = "logbook_id";
+    private static final int NUM_KEY_CRUISE_LOGBOOK_ID = 14;
+
+    private static final String KEY_CRUISE_SAVED_ON_SERVER = "savedFlag";
+    private static final int NUM_KEY_CRUISE_SAVED_ON_SERVER = 15;
+
+    private static final String KEY_CRUISE_DATE_SAVED = "saved";
+    private static final int NUM_KEY_CRUISE_DATE_SAVED = 16;
+
     //---------------------------------------------------------------------------------------------
     public LogbooksDB(Context context) {
         SQLiteLogbook =new SQLiteLogbook(context,DATABASE_NAME,null,DATABASE_VERSION);
@@ -335,7 +386,7 @@ public class LogbooksDB {
 
         ContentValues values = new ContentValues();
         values.put(KEY_CREW_NAME, crew.getName()); // Name
-        values.put(KEY_CREW_ADDRESS, crew.getList()); // crew
+        values.put(KEY_CREW_LIST, crew.getList()); // crew
 
         // Inserting Row
         long id = db.insert(TABLE_CREW, null, values);
@@ -393,6 +444,110 @@ public class LogbooksDB {
         Log.d(TAG, "Deleted all crews info from sqlite");
     }
 
+    /***********************************************************************************************
+     *                                    CRUISE TABLE
+     ******************************************************************************************** */
+    /**
+     * Storing Cruise details in database
+     * */
+    public void addCruise(Cruises cruise) {
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_CRUISE_DESC, cruise.getNameCruise());
+        values.put(KEY_CRUISE_START_DATE, cruise.getStartDate());
+        values.put(KEY_CRUISE_END_DATE, cruise.getEndDate());
+        values.put(KEY_CRUISE_FROM, cruise.getFrom());
+        values.put(KEY_CRUISE_TO, cruise.getTo());
+        values.put(KEY_CRUISE_FROM_HARBOUR, cruise.getFromHarbour());
+        values.put(KEY_CRUISE_TO_HARBOUR, cruise.getToHarbour());
+        values.put(KEY_CRUISE_CAPTAIN, cruise.getCaptain());
+        values.put(KEY_CRUISE_CREW_ID, cruise.getCrew_id());
+        values.put(KEY_CRUISE_EXPECTED_WEATHER, cruise.getExpectedWeather());
+        values.put(KEY_CRUISE_WATER_LEVEL, cruise.getWaterLevels());
+        values.put(KEY_CRUISE_FUEL, cruise.getFuel());
+        values.put(KEY_CRUISE_AT_STOP, cruise.getAtStop());
+        values.put(KEY_CRUISE_LOGBOOK_ID, cruise.getLogbook_id());
+
+        // Inserting Row
+        long id = db.insert(TABLE_CRUISE, null, values);
+
+        Log.d(TAG, "New Cruise inserted into sqlite: " + id);
+    }
+
+    /**
+     * Getting Cruise data from database
+     * */
+    public List<Cruises> getCruiseDetails(int id) {
+        List<Cruises> cruises= new ArrayList<>();
+        String selectQuery;
+        if (id==0) {
+            selectQuery = "SELECT * FROM " + TABLE_CRUISE;
+        } else {
+            selectQuery = "SELECT * FROM " + TABLE_CRUISE + " where " + KEY_CRUISE_ID + "=" + id;
+        }
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        // Move to first row
+        cursor.moveToFirst();
+        Log.d(TAG, DATABASE_NAME + "-" + TABLE_CRUISE + "-cursor return a count of " + cursor.getCount());
+        while (!cursor.isAfterLast()) {
+            Cruises cruise=cursorToCruises(cursor);
+            cruises.add(cruise);
+            cursor.moveToNext();
+        }
+
+        cursor.close();
+
+        // return user
+        Log.d(TAG, DATABASE_NAME + "-" + TABLE_OWNER + "-Fetching owner from Sqlite ");
+
+        return cruises;
+    }
+
+    private Cruises cursorToCruises(Cursor cursor) {
+        Cruises cruises=new Cruises();
+        cruises.setId(cursor.getInt(0));
+        cruises.setNameCruise(cursor.getString(1));
+        cruises.setStartDate(cursor.getString(3));
+        cruises.setEndDate(cursor.getString(4));
+        cruises.setTo(cursor.getString(5));
+        cruises.setFromHarbour(cursor.getString(6));
+        cruises.setToHarbour(cursor.getString(7));
+        cruises.setCaptain(cursor.getString(8));
+        cruises.setCrew_id(cursor.getInt(9));
+        cruises.setExpectedWeather(cursor.getString(10));
+        cruises.setWaterLevels(cursor.getString(11));
+        cruises.setFuel(cursor.getString(12));
+        cruises.setAtStop(cursor.getString(13));
+        cruises.setLogbook_id(cursor.getInt(14));
+
+        return cruises;
+
+    }
+
+    public int updateCruise(Cruises cruise) {
+        ContentValues values = new ContentValues();
+        values.put(KEY_CRUISE_DESC, cruise.getNameCruise());
+        values.put(KEY_CRUISE_START_DATE, cruise.getStartDate());
+        values.put(KEY_CRUISE_END_DATE, cruise.getEndDate());
+        values.put(KEY_CRUISE_FROM, cruise.getFrom());
+        values.put(KEY_CRUISE_TO, cruise.getTo());
+        values.put(KEY_CRUISE_FROM_HARBOUR, cruise.getFromHarbour());
+        values.put(KEY_CRUISE_TO_HARBOUR, cruise.getToHarbour());
+        values.put(KEY_CRUISE_CAPTAIN, cruise.getCaptain());
+        values.put(KEY_CRUISE_CREW_ID, cruise.getCrew_id());
+        values.put(KEY_CRUISE_EXPECTED_WEATHER, cruise.getExpectedWeather());
+        values.put(KEY_CRUISE_WATER_LEVEL, cruise.getWaterLevels());
+        values.put(KEY_CRUISE_FUEL, cruise.getFuel());
+        values.put(KEY_CRUISE_AT_STOP, cruise.getAtStop());
+        values.put(KEY_CRUISE_LOGBOOK_ID, cruise.getLogbook_id());
+
+        int rc = db.update(TABLE_CRUISE, //table
+                values, // column-value
+                KEY_CRUISE_ID + "="+cruise.getId(),
+                null);
+
+        return rc;
+    }
 
 
 }

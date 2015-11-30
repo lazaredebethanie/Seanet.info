@@ -91,7 +91,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/etName"
+                android:id="@+id/etNameCrew"
                 android:hint="Name of crew" />
         </android.support.design.widget.TextInputLayout>
 
@@ -103,37 +103,45 @@
             android:id="@+id/textView26"
             android:paddingTop="10dp" />
 
-        <ScrollView
-            android:layout_width="fill_parent"
-            android:layout_height="129dp"
-            android:id="@+id/scrollView2"
-            android:fillViewport="false">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            <ListView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/lvLPersonsList"
-                android:choiceMode="none" />
-        </ScrollView>
+            <ScrollView
+                android:layout_width="fill_parent"
+                android:layout_height="137dp"
+                android:id="@+id/scrollView2"
+                android:fillViewport="true">
+
+                <ListView
+                    android:layout_width="wrap_content"
+                    android:layout_height="145dp"
+                    android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                    android:id="@+id/lvLPersonsList"
+                    android:choiceMode="none"
+                    android:minHeight="?android:attr/listPreferredItemHeight"
+                    android:padding="8dp"
+                    android:footerDividersEnabled="false" />
+            </ScrollView>
+        </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center_vertical">
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical">
 
 
-            <android.support.design.widget.TextInputLayout android:layout_width="fill_parent"
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="70">
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"
-                    android:ems="10"
-                    android:id="@+id/etPerson"
-                    android:hint="Enter a person" />
-            </android.support.design.widget.TextInputLayout>
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:id="@+id/etNameOfPerson"
+                android:hint="Enter a person"
+                android:layout_weight="70" />
 
             <ImageButton
                 android:layout_width="60dp"

@@ -42,9 +42,9 @@ public class LogbooksManage extends AppCompatActivity {
     private TextView tOwner;
     private TextView tCreated;
     private TextView tClosed;
-    private LogbooksDB db;
     static final int NEW_LOGBOOK_REQUEST = 1;
     static final int MODIFY_LOGBOOK_REQUEST = 2;
+    private LogbooksDB db;
     private List<Logbooks> logbooks;
     private List<Owners> owners;
 

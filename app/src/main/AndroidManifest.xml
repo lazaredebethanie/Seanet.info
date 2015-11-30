@@ -98,6 +98,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="info.seanet.seanetinfo.logbook.Logbook" />
         </activity>
+        <activity
+            android:name=".logbook.CruisesManage"
+            android:label="@string/title_activity_cruises_manage"
+            android:parentActivityName=".logbook.Logbook"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="info.seanet.seanetinfo.logbook.Logbook" />
+        </activity>
     </application>
 
 </manifest>

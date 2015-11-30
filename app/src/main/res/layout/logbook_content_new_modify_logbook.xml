@@ -83,7 +83,7 @@
                 android:id="@+id/iBtnSave"
                 android:src="@android:drawable/ic_menu_save"
                 style="@style/Widget.AppCompat.Button.Borderless"
-                android:adjustViewBounds="true"
+                android:adjustViewBounds="false"
                 android:nestedScrollingEnabled="true" />
 
         </LinearLayout>

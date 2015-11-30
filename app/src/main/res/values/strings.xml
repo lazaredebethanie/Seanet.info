@@ -64,5 +64,6 @@
     <string name="title_activity_new_owner">Create a new owner</string>
     <string name="title_activity_modify_logbook">ModifyLogbook</string>
     <string name="title_activity_crews_manage">CrewsManage</string>
+    <string name="title_activity_cruises_manage">CruisesManage</string>
 
 </resources>

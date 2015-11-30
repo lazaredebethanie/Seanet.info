@@ -195,7 +195,7 @@ public class NewLogbook extends AppCompatActivity {
                 db.close();
                 finish();
             } else {
-                Toast.makeText(getApplicationContext(), "Not saved, give a to your logbook", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Not saved, give a name to your logbook", Toast.LENGTH_SHORT).show();
             }
         } else {
             Toast.makeText(getApplicationContext(), "Not saved, create a owner...", Toast.LENGTH_SHORT).show();
