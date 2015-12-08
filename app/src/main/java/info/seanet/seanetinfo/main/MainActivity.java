@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
 import java.util.HashMap;
 
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton btnLogout;
     private ImageButton btnLogbook;
     private ImageButton btnMarinas;
+    private LinearLayout lAlertNotConnected;
 
     private SQLiteSession db;
     private SessionManager session;
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         btnLogout = (ImageButton) findViewById(R.id.iBtnLogout);
         btnLogbook = (ImageButton) findViewById(R.id.iBtnLogBook);
         btnMarinas = (ImageButton) findViewById(R.id.iBtnMarinas);
+        lAlertNotConnected= (LinearLayout) findViewById(R.id.lAlertNotConnected);
 
         // SqLite database handler
         db = new SQLiteSession(getApplicationContext());
@@ -42,15 +45,15 @@ public class MainActivity extends AppCompatActivity {
         session = new SessionManager(getApplicationContext());
 
         if (!session.isLoggedIn()) {
-            logoutUser();
+            lAlertNotConnected.setVisibility(View.VISIBLE);
+        } else {
+            // Fetching user details from SQLite
+            HashMap<String, String> user = db.getUserDetails();
+
+            String name = user.get("name");
+            String email = user.get("email");
+            // Logout button click event
         }
-
-        // Fetching user details from SQLite
-        HashMap<String, String> user = db.getUserDetails();
-
-        String name = user.get("name");
-        String email = user.get("email");
-        // Logout button click event
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
 

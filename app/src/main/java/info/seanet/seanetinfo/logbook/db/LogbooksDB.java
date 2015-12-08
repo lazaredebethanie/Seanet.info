@@ -20,7 +20,7 @@ public class LogbooksDB {
                     DATABASE SETTINGS
     ******************************************************************************************* */
     // Database Version
-    private static final int DATABASE_VERSION = 8;
+    private static final int DATABASE_VERSION = 12;
 
     // Database Name
     private static final String DATABASE_NAME = "seanet_info_logbook";
@@ -83,7 +83,7 @@ public class LogbooksDB {
     private static final int NUM_KEY_LOGBOOK_RADIO_CALL = 10;
 
     private static final String KEY_LOGBOOK_LENGTH = "length";
-    private static final int NUM_KEY_LOGBOOK_LENGTH = 1;
+    private static final int NUM_KEY_LOGBOOK_LENGTH = 11;
 
     private static final String KEY_LOGBOOK_BEAM = "beam";
     private static final int NUM_KEY_LOGBOOK_BEAM = 12;
@@ -136,10 +136,10 @@ public class LogbooksDB {
     private static final String KEY_CRUISE_END_DATE = "endDate";
     private static final int NUM_KEY_CRUISE_END_DATE = 3;
 
-    private static final String KEY_CRUISE_FROM = "from";
+    private static final String KEY_CRUISE_FROM = "from_area";
     private static final int NUM_KEY_CRUISE_FROM = 4;
 
-    private static final String KEY_CRUISE_TO = "to";
+    private static final String KEY_CRUISE_TO = "to_area";
     private static final int NUM_KEY_CRUISE_TO = 5;
 
     private static final String KEY_CRUISE_FROM_HARBOUR = "from_harbour";
@@ -158,7 +158,7 @@ public class LogbooksDB {
     private static final int NUM_KEY_CRUISE_EXPECTED_WEATHER = 10;
 
     private static final String KEY_CRUISE_WATER_LEVEL = "water_level";
-    private static final int NUM_KEY_CRUISE_WATER_LEVEL = 1;
+    private static final int NUM_KEY_CRUISE_WATER_LEVEL = 11;
 
     private static final String KEY_CRUISE_FUEL = "fuel";
     private static final int NUM_KEY_CRUISE_FUEL = 12;

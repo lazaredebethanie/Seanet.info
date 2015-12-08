@@ -3,6 +3,8 @@ package info.seanet.seanetinfo.logbook;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -10,12 +12,14 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import info.seanet.seanetinfo.R;
 import info.seanet.seanetinfo.logbook.db.Crews;
+import info.seanet.seanetinfo.logbook.db.Cruises;
 import info.seanet.seanetinfo.logbook.db.Logbooks;
 import info.seanet.seanetinfo.logbook.db.LogbooksDB;
 
@@ -85,8 +89,33 @@ public class CruisesManage extends AppCompatActivity {
             }
         });
 
+        save = (ImageButton) findViewById(R.id.iBtnSave);
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onSaveCruise();
+            }
+        });
+
         loadLogbookSpinner();
         loadCrewSpinner();
+
+        eHeight1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                System.out.println("change");
+            }
+        });
     }
 
     private void loadLogbookSpinner (){
@@ -147,6 +176,49 @@ public class CruisesManage extends AppCompatActivity {
 
         Log.d(TAG, "Spinner loaded");
 
+    }
+
+
+    public void onSaveCruise () {
+
+        
+        if (! eFrom.getText().toString().equals("") && ! eTo.getText().toString().equals("") && ! eStartDate.getText().toString().equals("")) {
+
+            String nameCruise="From " +eFrom.getText().toString()
+                + " to " + eTo.getText().toString()
+                +" (" + eStartDate.getText().toString() +")";
+
+            db = new LogbooksDB(this);
+
+            db.open();
+
+            Cruises Cruise = new Cruises();
+            Cruise.setNameCruise(nameCruise);
+            Cruise.setStartDate(eStartDate.getText().toString());
+            Cruise.setFrom(eFrom.getText().toString());
+            Cruise.setTo(eTo.getText().toString());
+            Cruise.setFromHarbour(eFromHarbour.getText().toString());
+            Cruise.setToHarbour(eToHarbour.getText().toString());
+            Cruise.setCaptain(eCaptain.getText().toString());
+
+            Cruise.setCrew_id(crews.get(spCrew.getSelectedItemPosition()).getId());
+
+            Cruise.setExpectedWeather(eExpectedWeather.getText().toString());
+            Cruise.setWaterLevels(tvHeights.getText().toString());
+            Cruise.setAtStop(eAtStop.getText().toString());
+
+            Cruise.setLogbook_id(logbooks.get(spLogbook.getSelectedItemPosition()).getId());
+
+
+            android.text.format.DateFormat df = new android.text.format.DateFormat();
+            String timestamp=(String) df.format("yyyy-MM-dd hh:mm", new java.util.Date());
+            db.addCruise(Cruise);
+
+            db.close();
+            finish();
+        } else {
+            Toast.makeText(getApplicationContext(), "Not saved, From, To or Start date is empty.", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }
